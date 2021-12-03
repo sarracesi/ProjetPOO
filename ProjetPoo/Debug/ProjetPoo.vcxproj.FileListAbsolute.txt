@@ -1,0 +1,9 @@
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.vcxproj.AssemblyReference.cache
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.MyForm.resources
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.vcxproj.GenerateResource.cache
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.exe
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.Gestion_De_Client.resources
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.Gestion_De_Personnel.resources
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.Gestion_Articles.resources
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.Gestion_Des_Commandes.resources
+C:\Users\billo\source\repos\ProjetPoo\Debug\ProjetPoo.Gestion_Des_Statistiques.resources
