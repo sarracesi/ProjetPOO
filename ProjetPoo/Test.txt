@@ -1,0 +1,21 @@
+INSERT INTO [dbo].[Adresse] (Adresse, num_de_rue, num_d_etage, ID_Ville, ID_Perso, ID_Client, ID_Client_Facturation)
+VALUES
+('Le coin' , '9', '0', '1', '0','1', '1')
+
+
+
+CREATE UNIQUE NONCLUSTERED INDEX idx_ID_Perso
+ON dbo.Adresse(ID_Perso)
+WHERE ID_Perso IS NOT NULL;
+
+CREATE UNIQUE NONCLUSTERED INDEX idx_ID_Client
+ON dbo.Adresse(ID_Client)
+WHERE ID_Client IS NOT NULL;
+
+
+CREATE UNIQUE NONCLUSTERED INDEX idx_ID_Client_Facturation
+ON dbo.Adresse(ID_Client_Facturation)
+WHERE ID_Client_Facturation IS NOT NULL;
+
+
+MOYEN_DE_PAIEMENT

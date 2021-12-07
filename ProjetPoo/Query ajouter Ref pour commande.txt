@@ -1,0 +1,8 @@
+ALTER TABLE Customers
+ADD Email varchar(255);
+
+ALTER TABLE Article
+ADD Nom_Article VARCHAR(50) ;
+
+ALTER TABLE Article
+ADD Prix_TTC MONEY ;

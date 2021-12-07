@@ -1,0 +1,20 @@
+INSERT INTO [dbo].[PAIEMENT] ( Date_paiement, MOYEN_PAIEMENT, Montant_total_HT, Montant_total_TVA,Id, ID_Commande)
+VALUES
+( '2021-12-03', 'CB','3','3.57' , '1','1' )
+
+INSERT INTO [dbo].[PAIEMENT] ( Date_paiement, MOYEN_PAIEMENT, Montant_total_HT, Montant_total_TVA,Id, ID_Commande)
+VALUES
+( '2021-12-03', 'ESPECE','12','14.28' , '3','2' )
+
+
+
+
+
+
+
+
+
+
+
+
+

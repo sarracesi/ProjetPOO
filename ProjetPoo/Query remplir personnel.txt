@@ -1,0 +1,8 @@
+INSERT INTO [dbo].[Personnel] (Nom, Prenom, Date_Embauche, Id_Personnel, ID_Adresse )
+VALUES
+('Biden' , 'Joe', '2021-12-06', '1', '1')
+
+
+INSERT INTO [dbo].[Personnel] (Nom, Prenom, Date_Embauche,  Id_Personnel, ID_Adresse )
+VALUES
+('Ai' , 'Yazawa', '2021-12-01', '1', '5')

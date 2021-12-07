@@ -1,0 +1,36 @@
+----Nombre de commande ----
+
+  SELECT count(ID) from commande
+
+
+-----Chiffre d'affaire----
+
+ SELECT sum(PRIX_HT+(PRIX_HT*19/100)*Quantite_Article) as chiffre_affaire from Commander left join Article on Article.Reference_Article = Commander.ID
+
+
+------ SEUIL_DE_REAPROVISIONNEMENT -----
+
+SELECT Reference_Article,Nom_Article FROM Article WHERE Quantite_en_Stock < SEUIL_DE_REAPROVISIONNEMENT
+
+
+-----Calcule achat client----
+
+select sum(PRIX_HT+(PRIX_HT*(19-REMISE)/100)*Quantite_Article) from Commander left join Article on Article.Reference_Article = Commander.ID left join commande on commande.ID = Commander.ID where Id_Client = 1
+
+
+----TOP 10 Article les plus vendus -----
+
+SELECT TOP 10 [Commander].Reference_Article,[Article].Nom_Article,SUM([Commander].Quantite_Article) FROM Article,Commander WHERE [Commander].Reference_Article = [Article].Reference_Article GROUP BY [Commander].Reference_Article,[Article].Nom_Article ORDER BY SUM([Commander].Quantite_Article) DESC
+
+----TOP 10 Article les moins vendus---
+
+SELECT TOP 10 [Commander].Reference_Article,[Article].Nom_Article,SUM([Commander].Quantite_Article) FROM Article,Commander WHERE [Commander].Reference_Article = [Article].Reference_Article GROUP BY [Commander].Reference_Article,[Article].Nom_Article ORDER BY SUM([Commander].Quantite_Article) ASC
+
+
+-----Liste des clients ----
+
+  Select Id, concat(Nom,Prenom, ' ', ' ') as client from client
+
+-----Valeur de stock ----
+
+SELECT SUM(PRIX_HT * Quantite_en_stock) - SUM((PRIX_HT * 0.2) * Quantite_en_stock) FROM Article

@@ -1,0 +1,18 @@
+INSERT INTO [dbo].[Commande] ( Date_Emission, Date_Livraison, ID_Adresse, ID_Adresse_FACTURER, Id_Client)
+VALUES
+( '2021-12-03', '2021-12-10','1','1' '1')
+
+INSERT INTO [dbo].[Commande] ( Date_Emission, Date_Livraison, ID_Adresse, ID_Adresse_FACTURER, Id_Client)
+VALUES
+( '2021-12-03', '2021-12-10','3','5', '3')
+
+
+
+
+
+
+
+
+
+
+

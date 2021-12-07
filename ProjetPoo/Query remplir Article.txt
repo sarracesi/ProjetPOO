@@ -1,0 +1,16 @@
+INSERT INTO [dbo].[Article] ( Nom_Article, PRIX_HT, Taux_TVA, Quantite_en_stock,SEUIL_DE_REAPROVISIONNEMENT, Nature_Article, Couleur )
+VALUES
+( 'Resistance', '3','3.57','5' , '2','Analogique', 'Rouge')
+
+INSERT INTO [dbo].[Article] ( Nom_Article, PRIX_HT, Taux_TVA, Quantite_en_stock,SEUIL_DE_REAPROVISIONNEMENT, Nature_Article, Couleur )
+VALUES
+( 'Microprocesseur', '10','11.9','8' , '2','Numérique', 'Bleu')
+
+INSERT INTO [dbo].[Article] ( Nom_Article, PRIX_HT, Taux_TVA, Quantite_en_stock,SEUIL_DE_REAPROVISIONNEMENT, Nature_Article, Couleur )
+VALUES
+( 'Buzzer', '4','4.76','5' , '2','IH', 'Rouge')
+
+INSERT INTO [dbo].[Article] ( Nom_Article, PRIX_HT, Taux_TVA, Quantite_en_stock,SEUIL_DE_REAPROVISIONNEMENT, Nature_Article, Couleur )
+VALUES
+( 'Température', '9','10.71','5' , '2','Capteur', 'Jaune')
+

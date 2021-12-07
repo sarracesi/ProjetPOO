@@ -1,0 +1,21 @@
+INSERT INTO [dbo].[Adresse] (Adresse, Num_Rue, num_etage, ID, Id_Client )
+VALUES
+('La fève' , '50', '2', '2', '1')
+
+INSERT INTO [dbo].[Adresse] (Adresse, Num_Rue, num_etage, ID, Id_Client )
+VALUES
+('Victoire' , '10', '4', '2', '5')
+
+INSERT INTO [dbo].[Adresse] (Adresse, Num_Rue, num_etage, ID, Id_Client )
+VALUES
+('V.Hugo' , '5', '1', '1', '3')
+
+INSERT INTO [dbo].[Adresse] (Adresse, Num_Rue, num_etage, ID, Id_Client)
+VALUES
+('Staravenue' , '1', '10', '3','4')
+
+
+INSERT INTO [dbo].[Adresse] (Adresse, Num_Rue, num_etage, ID, Id_Client)
+VALUES
+('Okinawa' , '14', '25', '5', '3')
+

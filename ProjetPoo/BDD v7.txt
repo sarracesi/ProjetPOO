@@ -1,0 +1,174 @@
+/*------------------------------------------------------------
+*        Script SQLSERVER 
+------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------
+-- Table: Client
+------------------------------------------------------------*/
+CREATE TABLE Client(
+	Id                    INT IDENTITY (1,1) NOT NULL ,
+	Nom                   VARCHAR (25) NOT NULL ,
+	Prenom                VARCHAR (25) NOT NULL ,
+	Date_Naissance        DATE NOT NULL ,
+	Date__premier_achat   DATE NOT NULL  ,
+	CONSTRAINT Client_PK PRIMARY KEY (Id)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Ville
+------------------------------------------------------------*/
+CREATE TABLE Ville(
+	ID      INT IDENTITY (1,1) NOT NULL ,
+	Ville   VARCHAR (50) CHECK (Ville IN ('PARIS','TOULOUSE','LYON','LILLE','BORDEAUX','MARSEILLE'))   ,
+	CONSTRAINT Ville_PK PRIMARY KEY (ID)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Adresse
+------------------------------------------------------------*/
+CREATE TABLE Adresse(
+	ID_Adresse   INT IDENTITY (1,1) NOT NULL ,
+	Adresse      VARCHAR (100) NOT NULL ,
+	Num_Rue      INT  NOT NULL ,
+	num_etage    INT  NOT NULL ,
+	ID           INT  NOT NULL ,
+	Id_Client    INT    ,
+	CONSTRAINT Adresse_PK PRIMARY KEY (ID_Adresse)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Commande
+------------------------------------------------------------*/
+CREATE TABLE Commande(
+	ID                    INT IDENTITY (1,1) NOT NULL ,
+	Date_Emission         DATE NOT NULL ,
+	Date_Livraison        DATE NOT NULL ,
+	ID_Adresse            INT  NOT NULL ,
+	ID_Adresse_FACTURER   INT  NOT NULL ,
+	Id_Client             INT  NOT NULL  ,
+	CONSTRAINT Commande_PK PRIMARY KEY (ID)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Paiement
+------------------------------------------------------------*/
+CREATE TABLE Paiement(
+	ID_PAIEMENT         INT IDENTITY (1,1) NOT NULL ,
+	Date_paiement       DATE NOT NULL ,
+	MOYEN_PAIEMENT      VARCHAR (20) CHECK (MOYEN_PAIEMENT IN ('CB','CHEQUE','ESPECE'))  ,
+	Montant_total_HT    FLOAT  NOT NULL ,
+	Montant_total_TVA   FLOAT  NOT NULL ,
+	Id                  INT  NOT NULL ,
+	ID_Commande         INT  NOT NULL  ,
+	CONSTRAINT Paiement_PK PRIMARY KEY (ID_PAIEMENT)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Article
+------------------------------------------------------------*/
+CREATE TABLE Article(
+	Reference_Article             INT IDENTITY (1,1) NOT NULL ,
+	Nom_Article                   VARCHAR (50) NOT NULL ,
+	PRIX_HT                       FLOAT  NOT NULL ,
+	Taux_TVA                      FLOAT  NOT NULL ,
+	Quantite_en_stock             INT  NOT NULL ,
+	SEUIL_DE_REAPROVISIONNEMENT   INT  NOT NULL ,
+	Nature_Article                VARCHAR (50) CHECK (Nature_Article IN ('Analogique','Numérique','IH','Capteur'))  ,
+	Couleur                       VARCHAR (50) CHECK (Couleur IN ('Rouge','Vert','Jaune','Bleu'))   ,
+	CONSTRAINT Article_PK PRIMARY KEY (Reference_Article)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Commander
+------------------------------------------------------------*/
+CREATE TABLE Commander(
+	Reference_Article   INT  NOT NULL ,
+	ID                  INT  NOT NULL ,
+	REMISE              FLOAT  NOT NULL ,
+	Quantite_Article    INT  NOT NULL  ,
+	CONSTRAINT Commander_PK PRIMARY KEY (Reference_Article,ID)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Personnel
+------------------------------------------------------------*/
+CREATE TABLE Personnel(
+	Id              INT IDENTITY (1,1) NOT NULL ,
+	Nom             VARCHAR (25) NOT NULL ,
+	Prenom          VARCHAR (25) NOT NULL ,
+	Date_Embauche   DATE NOT NULL ,
+	Id_Personnel    INT  NOT NULL ,
+	ID_Adresse      INT  NOT NULL  ,
+	CONSTRAINT Personnel_PK PRIMARY KEY (Id)
+);
+
+
+
+
+ALTER TABLE Adresse
+	ADD CONSTRAINT Adresse_Ville0_FK
+	FOREIGN KEY (ID)
+	REFERENCES Ville(ID);
+
+ALTER TABLE Adresse
+	ADD CONSTRAINT Adresse_Client1_FK
+	FOREIGN KEY (Id_Client)
+	REFERENCES Client(Id);
+
+ALTER TABLE Commande
+	ADD CONSTRAINT Commande_Adresse0_FK
+	FOREIGN KEY (ID_Adresse)
+	REFERENCES Adresse(ID_Adresse);
+
+ALTER TABLE Commande
+	ADD CONSTRAINT Commande_Adresse1_FK
+	FOREIGN KEY (ID_Adresse_FACTURER)
+	REFERENCES Adresse(ID_Adresse);
+
+ALTER TABLE Commande
+	ADD CONSTRAINT Commande_Client2_FK
+	FOREIGN KEY (Id_Client)
+	REFERENCES Client(Id);
+
+ALTER TABLE Paiement
+	ADD CONSTRAINT Paiement_Client0_FK
+	FOREIGN KEY (Id)
+	REFERENCES Client(Id);
+
+ALTER TABLE Paiement
+	ADD CONSTRAINT Paiement_Commande1_FK
+	FOREIGN KEY (ID_Commande)
+	REFERENCES Commande(ID);
+
+ALTER TABLE Commander
+	ADD CONSTRAINT Commander_Article0_FK
+	FOREIGN KEY (Reference_Article)
+	REFERENCES Article(Reference_Article);
+
+ALTER TABLE Commander
+	ADD CONSTRAINT Commander_Commande1_FK
+	FOREIGN KEY (ID)
+	REFERENCES Commande(ID);
+
+ALTER TABLE Personnel
+	ADD CONSTRAINT Personnel_Personnel0_FK
+	FOREIGN KEY (Id_Personnel)
+	REFERENCES Personnel(Id);
+
+ALTER TABLE Personnel
+	ADD CONSTRAINT Personnel_Adresse1_FK
+	FOREIGN KEY (ID_Adresse)
+	REFERENCES Adresse(ID_Adresse);
+
+ALTER TABLE Personnel 
+	ADD CONSTRAINT Personnel_Adresse0_AK 
+	FOREIGN KEY (ID_Adresse)
+        REFERENCES Adresse(ID_Adresse);

@@ -1,0 +1,20 @@
+INSERT INTO [dbo].[Client] (Nom, Prenom, Date_Naissance, Date__premier_achat)
+VALUES
+('Kent' , 'Clark', '1956-12-06' , '2020-05-06')
+
+INSERT INTO [dbo].[Client] (Nom, Prenom, Date_Naissance, Date__premier_achat)
+VALUES
+('Descartes' , 'René', '1596-03-31' , '2019-01-26')
+
+INSERT INTO [dbo].[Client] (Nom, Prenom, Date_Naissance, Date__premier_achat)
+VALUES
+('Coperfield' , 'David', '1980-04-02' , '2018-06-20')
+
+INSERT INTO [dbo].[Client] (Nom, Prenom, Date_Naissance, Date__premier_achat)
+VALUES
+('Baker' , 'Chet', '1929-12-23' , '2021-02-25')
+
+INSERT INTO [dbo].[Client] (Nom, Prenom, Date_Naissance, Date__premier_achat)
+VALUES
+('Curie' , 'Marie', '1867-11-07' , '2021-12-02')
+

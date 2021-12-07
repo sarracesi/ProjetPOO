@@ -1,0 +1,18 @@
+INSERT INTO [dbo].[Commander] ( Reference_Article, ID, REMISE, Quantite_Article)
+VALUES
+( '1','1', '0','1')
+
+INSERT INTO [dbo].[Commander] ( Reference_Article, ID, REMISE, Quantite_Article)
+VALUES
+( '3', '2', '0','3')
+
+
+
+
+
+
+
+
+
+
+
