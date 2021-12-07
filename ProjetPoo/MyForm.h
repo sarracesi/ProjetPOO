@@ -2,8 +2,8 @@
 #include "Gestion_De_Client.h"
 #include "Gestion_De_Personnel.h"
 #include "Gestion_Articles.h"
-#include "Gestion_Des_Commandes.h"
-#include "Gestion_Des_Statistiques.h"
+#include "Gestion_De_Personnel.h"
+#include "Gestion_Articles.h"
 
 namespace ProjetPoo {
 
@@ -105,7 +105,6 @@ namespace ProjetPoo {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Gestion Des Commandes";
 			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button3
 			// 
@@ -207,14 +206,7 @@ namespace ProjetPoo {
 		this->Close();
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		ProjetPoo::Gestion_Des_Statistiques^ statistique = gcnew ProjetPoo::Gestion_Des_Statistiques;
-		statistique->Show();
 	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	ProjetPoo::Gestion_Des_Commandes^ commande = gcnew ProjetPoo::Gestion_Des_Commandes;
-	commande->Show();
-
-}
 };
 }
 
